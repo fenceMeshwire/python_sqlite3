@@ -2,7 +2,7 @@
 
 # Python 3.9.5
 
-# 00_testCreateTable.py
+# 00_test_create_table.py
 
 # Purpose: Test if a table with a specific name exists in your SQLite3 database.
 
@@ -11,11 +11,11 @@ import os, platform
 from pathlib import Path
 import sqlite3
 
-# Set your working directory:
+# Set your working directory (not necessarily needed):
 class Cwd():
     def __init__(self):
-        self.posix = ''
-        self.windows = ''
+        self.posix = ''     # Enter the current working directory here (OS X)
+        self.windows = ''   # Enter the current working directory here (Windows)
 
     def setWorkingDirectory(self):
         if os.name == 'posix' or platform.system() == 'Darwin': 
@@ -28,6 +28,8 @@ class Cwd():
 oCwd = Cwd()
 oCwd.setWorkingDirectory()
 
+# ==============================================================================
+# Core function to check if a database exists, otherwise to create the database:
 def tryTable():
     try:
         database = 'your_database.db'
@@ -43,5 +45,6 @@ def tryTable():
         print('Table {} created successfully in database: {}'.format(table, database))
     except sqlite3.OperationalError as err:
         print('Error:', err)
-        
-tryTable()
+
+if __name__ == '__main__':
+    tryTable()
