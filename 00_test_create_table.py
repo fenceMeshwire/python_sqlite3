@@ -28,8 +28,12 @@ class Cwd():
 oCwd = Cwd()
 oCwd.setWorkingDirectory()
 
-# ==============================================================================
-# Core function to check if a database exists, otherwise to create the database:
+# ==============================================================================================
+# Core function to check if a database including one specific table exists, otherwise to create:
+# 1.) the database: 'your_database.db' and
+# 2.) the table:    'tbl_Data' with 
+# 3.) the schema:   'tbl_Data(number INTEGER PRIMARY KEY, filename TEXT, filesize INTEGER)'
+
 def tryTable():
     try:
         database = 'your_database.db'
