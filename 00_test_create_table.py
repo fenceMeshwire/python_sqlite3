@@ -34,7 +34,7 @@ oCwd.setWorkingDirectory()
 # 2.) the table:    'tbl_Data'          with 
 # 3.) the schema:   'tbl_Data(number INTEGER PRIMARY KEY, filename TEXT, filesize INTEGER)'
 
-def tryTable():
+def try_table():
     try:
         database = 'your_database.db'
         table = 'tbl_Data'
@@ -51,4 +51,4 @@ def tryTable():
         print('Error:', err)
 
 if __name__ == '__main__':
-    tryTable()
+    try_table()
