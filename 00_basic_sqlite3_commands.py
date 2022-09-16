@@ -2,7 +2,7 @@
 
 # Python 3.9.5
 
-# 00_test_create_table.py
+# 00_basic_sqlite3_commands.py
 
 # Purpose: Test if a table with a specific name exists in your SQLite3 database.
 
