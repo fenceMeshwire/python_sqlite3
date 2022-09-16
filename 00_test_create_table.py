@@ -28,11 +28,13 @@ class Cwd():
 oCwd = Cwd()
 oCwd.setWorkingDirectory()
 
-# ==============================================================================================
-# Core function to check if a database including one specific table exists, otherwise to create:
+# =================================================================================================
+# Core function is to check if a database including one specific table exists, otherwise to create:
 # 1.) the database: 'your_database.db'  and
 # 2.) the table:    'tbl_Data'          with 
 # 3.) the schema:   'tbl_Data(number INTEGER PRIMARY KEY, filename TEXT, filesize INTEGER)'
+# 
+# If the database already exists, return the number of the last record, otherwise return 0. 
 
 def try_table():
     try:
@@ -49,6 +51,33 @@ def try_table():
         print('Table {} created successfully in database: {}'.format(table, database))
     except sqlite3.OperationalError as err:
         print('Error:', err)
+  
+def get_last_record():
+    database = 'your_database.db'
+    table = 'tbl_Data'
+    try:
+        connection = sqlite3.connect(database)
+        cursor = connection.cursor()
+        sql = 'SELECT * FROM {};'.format(table)
+        cursor.execute(sql)
+        records = []
+        counter = 0
+        algorithm = ''
+        try:
+            for record in cursor:
+                records.append(record)
+                counter += 1
+            number, filename, filesize = records[counter-1]
+        except IndexError:
+            print('First records in the table!')
+            number = 0
+        connection.commit()
+        connection.close()
+    except sqlite3.OperationalError as err:
+        print('Error:', err)
+    return number
 
 if __name__ == '__main__':
     try_table()
+    last_record = get_last_record()
+    print(last_record)
