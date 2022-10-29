@@ -32,3 +32,8 @@ for item in order:
 
 # Connect to or create the database "restaurant.db"
 database = sqlite3.connect('restaurant.db')
+
+csr = database.cursor() # Create a cursor object
+
+# Create a table:
+csr.execute('CREATE TABLE customer_orders (cat integer, art text, ppu real, cpu real, qty integer)')
