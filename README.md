@@ -5,5 +5,5 @@
     <li>Transform data suitable for saving data to the database</li>
     <li>Create a database (restaurant.db)</li>
     <li>Create a table (customer_orders)</li></ul>
-    <li>Insert data to the database</li>
+    <li>Insert data of a specific order (one or multiple positions) to the database</li>
 </ol>
