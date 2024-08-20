@@ -32,6 +32,6 @@ export_path = r"C:\Users\user\output" # Fake directory name, needs to be adjuste
 os.chdir(export_path)
 with open('csv_export.csv', 'w', newline="") as f:
     writer = csv.writer(f)
-    writer.writerow(['col_1', 'col_2', 'col_3'])
+    writer.writerow(['col_1', 'col_2', 'col_3']) # Write column heads
     for row in request:
-        writer.writerow(row)
+        writer.writerow(row) # Write rows from database
