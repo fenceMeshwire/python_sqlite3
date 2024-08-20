@@ -20,7 +20,7 @@ cur = con.cursor()
 
 # Create table:
 sql_statement = """
-CREATE TABLE us_counties_pop (
+CREATE TABLE table_name (
     state_fips text,                         
     county_fips text,                        
     region smallint,                        
@@ -47,7 +47,7 @@ import_dir = r"C:\Users\user\input_dir"
 os.chdir(import_dir)
 
 df = pd.read_csv('input_dir.csv')
-df.to_sql('us_counties_pop_est', con, if_exists='append', index=False)
+df.to_sql('table_name', con, if_exists='append', index=False)
 
 # Check input data
 sql_statement = 'SELECT * FROM us_counties_pop_est_2019'
