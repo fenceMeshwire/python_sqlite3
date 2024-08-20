@@ -18,7 +18,7 @@ res = cur.execute(sql_statement)
 # a) Test the result with a SELECT statement:
 sql_statement = 'SELECT * FROM table_name'
 res = cur.execute(sql_statement)
-request = res.fetchall()
+request = res.fetchall() # fetchall()requires a variable to store the data aquired from the database.
 for row in request:
     print(row)
 
@@ -27,7 +27,7 @@ import os
 
 sql_statement = 'SELECT * FROM table_name'
 res = cur.execute(sql_statement)
-request = res.fetchall()
+request = res.fetchall() # fetchall()requires a variable to store the data aquired from the database.
 export_path = r"C:\Users\user\output"
 os.chdir(export_path)
 with open('csv_export.csv', 'w', newline="") as f:
